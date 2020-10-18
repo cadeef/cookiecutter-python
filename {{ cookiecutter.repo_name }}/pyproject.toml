@@ -3,10 +3,14 @@ name = "{{ cookiecutter.python_module_name }}"
 version = "{{ cookiecutter.python_module_version }}"
 description = "{{ cookiecutter.python_module_description }}"
 authors = ["{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>"]
-
+{% if cookiecutter.project_type == "cli" %}
+[tool.poetry.scripts]
+{{ cookiecutter.script_name }} = '{{ cookiecutter.python_module_name }}.cli:main'
+{% endif %}
 [tool.poetry.dependencies]
 python = "^3.8"
 {% if cookiecutter.project_type == "cli" %}click = "^7.1.2"{% endif %}
+{%- if cookiecutter.project_type == "api" %}Flask-API = "^2.0"{% endif %}
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

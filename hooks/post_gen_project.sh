@@ -12,3 +12,6 @@ pre-commit autoupdate
 
 # Stage .pre-commit-config.yaml
 git add .pre-commit-config.yaml
+
+# Install imports
+poetry install

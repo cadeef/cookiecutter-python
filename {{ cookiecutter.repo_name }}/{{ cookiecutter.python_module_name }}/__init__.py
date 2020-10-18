@@ -1,1 +1,1 @@
-__version__ = '0.1.0'
+__version__ = "{{ cookiecutter.python_module_version }}"

@@ -1,9 +1,10 @@
 {
 	"repo_name": "",
-	"author_name": "Cade Ekblad-Frank",
-	"author_email": "cade@e-f.me",
+	"author_name": "Jimbob Smith",
+	"author_email": "jimbob@example.com",
 	"python_module_name": "{{ cookiecutter.repo_name|slugify(separator='_') }}",
 	"python_module_version": "0.1.0",
 	"python_module_description": "A really cool module",
-	"project_type": ["cli", "lib", "misc"]
+	"project_type": ["cli", "api", "misc"],
+	"script_name": ""
 }
