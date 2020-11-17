@@ -3,7 +3,7 @@ name = "{{ cookiecutter.python_module_name }}"
 version = "{{ cookiecutter.python_module_version }}"
 description = "{{ cookiecutter.python_module_description }}"
 authors = ["{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>"]
-{% if cookiecutter.project_type == "cli" %}
+{% if cookiecutter.project_type == "cli" and cookiecutter.script_name %}
 [tool.poetry.scripts]
 {{ cookiecutter.script_name }} = '{{ cookiecutter.python_module_name }}.cli:main'
 {% endif %}

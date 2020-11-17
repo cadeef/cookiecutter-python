@@ -6,5 +6,12 @@
 	"python_module_version": "0.1.0",
 	"python_module_description": "A really cool module",
 	"project_type": ["cli", "api", "misc"],
-	"script_name": ""
+    "script_name": "{{ cookiecutter.repo_name }}",
+    "create_gh_repo": ["yes", "no"],
+    "create_gh_repo_visibility": ["public", "private"],
+    "enable_gh_actions": ["yes", "no"],
+	"_copy_without_render": [
+		"*/workflows/codeql-analysis.yml",
+		"*/workflows/pre-commit.yml"
+	]
 }
