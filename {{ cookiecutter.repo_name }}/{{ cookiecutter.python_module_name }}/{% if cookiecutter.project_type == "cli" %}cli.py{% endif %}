@@ -1,12 +1,29 @@
-{% if cookiecutter.project_type == "cli" %}
-import click
+import importlib.metadata
+from typing import Annotated, Optional
+
+import typer
+from rich import print
+
+APP_NAME = "{{ cookiecutter.python_module_name }}"
+app = typer.Typer()
 
 
-@click.group()
-def main() -> None:
-    pass
+def version_callback(value: bool):
+    if value:
+        print(importlib.metadata.version(APP_NAME))
+        raise typer.Exit()
+
+
+@app.callback()
+def main(
+    ctx: typer.Context,
+    version: Annotated[
+        Optional[bool],
+        typer.Option("--version", "-V", callback=version_callback, is_eager=True),
+    ] = None,
+) -> None:
+    ctx.ensure_object(dict)
 
 
 if __name__ == "__main__":
-    main()
-{% endif %}
+    app()

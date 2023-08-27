@@ -1,20 +1,19 @@
-name: pre-commit
+name: Test
 
 on:
-  pull_request:
+  workflow_dispatch:
   push:
 
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
-    - name: Environment Variable - PY
-      run: echo "PY=$(python -VV | sha256sum | cut -d' ' -f1)" >> $GITHUB_ENV
-    - name: Cache virtualenv
-      uses: actions/cache@v2
+    - name: Repository Checkout
+      uses: actions/checkout@v3.5.3
+    - name: Setup Python
+      uses: actions/setup-python@v4.7.0
       with:
-        path: ~/.cache/pre-commit
-        key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
-    - uses: pre-commit/action@v2.0.0
+        python-version: '3.11'
+        cache: 'pip'
+    - name: Run pre-commit
+      uses: pre-commit/action@v3.0.0

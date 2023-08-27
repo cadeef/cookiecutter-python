@@ -12,7 +12,7 @@
     "create_gh_repo_visibility": ["public", "private"],
     "enable_gh_actions": ["yes", "no"],
 	"_copy_without_render": [
-		"*/workflows/codeql-analysis.yml",
-		"*/workflows/pre-commit.yml"
+		".github/workflows/*.yml",
+		"Justfile"
 	]
 }
