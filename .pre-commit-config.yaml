@@ -1,7 +1,7 @@
 # See https://pre-commit.com for more information
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.4.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -9,21 +9,19 @@ repos:
       # - id: check-toml
       - id: check-json
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 2.1.5
+    rev: 3.0.0
     hooks:
       - id: shellcheck
-  - repo: https://github.com/markdownlint/markdownlint
-    rev: v0.11.0
+  - repo: https://github.com/tcort/markdown-link-check
+    rev: v3.11.2
+    hooks:
+      - id: markdown-link-check
+        args: ["--config", "tests/config/mlc_config.json"]
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.36.0
     hooks:
       - id: markdownlint
-        args: ["-r", "~MD013,~MD029,~MD002,~MD026"]
-        exclude: "{{ cookiecutter.repo_name }}/README.md"
-  - repo: local
-    hooks:
-      - id: pytest
-        name: pytest
-        entry: poetry run pytest
-        always_run: true
-        pass_filenames: false
-        language: system
-        stages: ["push"]
+        args: ["--config", "tests/config/markdownlint.json"]
+default_install_hook_types:
+  - pre-commit
+  - pre-push
