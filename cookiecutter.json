@@ -6,7 +6,7 @@
 	"python_module_name": "{{ cookiecutter.repo_name|slugify(separator='_') }}",
 	"python_module_version": "0.1.0",
 	"python_module_description": "{{ cookiecutter.repo_description }}",
-	"project_type": ["cli", "api", "misc"],
+	"project_type": ["cli", "library", "misc"],
     "script_name": "{{ cookiecutter.repo_name }}",
     "create_gh_repo": ["yes", "no"],
     "create_gh_repo_visibility": ["public", "private"],
