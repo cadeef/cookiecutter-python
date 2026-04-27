@@ -1,7 +1,3 @@
-
-# Load environment variables using 1password-cli
-opornone := if `hash op &> /dev/null && echo found` == "found" { "op run --env-file .env --" } else { "" }
-
 # List commands
 default:
   @just --list
@@ -32,17 +28,13 @@ fix:
 docs *type:
   uv run {% raw %}{{ if type == "live" { "sphinx-autobuild" } else { "sphinx-build" } }}{% endraw %} -b html docs docs/_build/html
 
-# Enter virtual environment
-shell:
-  uv run "${SHELL:-bash}"
-
 # Publish package to PyPI
 publish:
   # Using PyPI token from UV_PUBLISH_TOKEN
   # Build package
   uv build
   # Publish package
-  {% raw %}{{opornone}}{% endraw %} uv publish
+  uv publish
 
 docker_socket := `docker context inspect --format '{% raw %}{{.Endpoints.docker.Host}}{% endraw %}'`
 docker_status := `limactl ls --json | jq -r 'select(.name == "docker") | .status'`
