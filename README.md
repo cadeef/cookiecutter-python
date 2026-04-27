@@ -4,17 +4,23 @@ How I work with python, roughly. Bootstrap projects to eliminate toil.
 
 ## Objectives
 
-* Cede formatting control to black, it does a fine job and let’s me focus on code rather than style
+* Cede formatting control to ruff, it does a fine job and let’s me focus on code rather than style
 * Pytest on push, don’t let me push code that fails tests
 * Enforce strict static type analysis via mypy; duck typing is convenient but tracing obscure issues later sucks
-* Use flake8 for pattern feedback but ignore style issues (black)
-* Use isort for well ordered imports
+* Use ruff for pattern feedback and well ordered imports
+* Use uv for dependency management, virtual environments, builds, and publishing
 * Provide templates for common tasks
 * Pre-commit works great, always use it
 
 ## Install
 
 [Cookiecutter](https://cookiecutter.readthedocs.io) is required to use this cookiecutter template (😉). There are many ways to [install cookiecutter](https://cookiecutter.readthedocs.io/en/1.7.2/installation.html), choose what works best for you. I use [brew](https://brew.sh/) (`brew install cookiecutter`), but it’s not the only way.
+
+Generated projects use [uv](https://docs.astral.sh/uv/) for dependency management, builds, and publishing. Install it before generating a project:
+
+```sh
+brew install uv
+```
 
 ## Usage
 

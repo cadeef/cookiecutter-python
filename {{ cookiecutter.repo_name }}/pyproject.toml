@@ -1,42 +1,51 @@
-[tool.poetry]
+[project]
 name = "{{ cookiecutter.python_module_name }}"
 version = "{{ cookiecutter.python_module_version }}"
 description = "{{ cookiecutter.python_module_description }}"
-authors = ["{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>"]
+authors = [
+  { name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}" },
+]
 readme = "README.md"
+requires-python = ">=3.10"
+{% if cookiecutter.project_type == "cli" %}
+dependencies = [
+  "typer>=0.9.0",
+]
+{% else %}
+dependencies = []
+{% endif %}
 
-[tool.poetry.urls]
+[project.urls]
 Repository = ""
 Documentation = ""
 {% if cookiecutter.project_type == "cli" and cookiecutter.script_name %}
-[tool.poetry.scripts]
-{{ cookiecutter.script_name }} = '{{ cookiecutter.python_module_name }}.cli:app'
+[project.scripts]
+{{ cookiecutter.script_name }} = "{{ cookiecutter.python_module_name }}.cli:app"
 {% endif %}
-[tool.poetry.dependencies]
-python = ">=3.10"
-{% if cookiecutter.project_type == "cli" %}typer = {extras = ["all"], version = "^0.9.0"}
-{% endif %}
-[tool.poetry.group.dev.dependencies]
-pytest-cov = ">=4.1.0"
-pytest = ">=8.0.0"
-ruff = ">=0.2.1"
-mypy = ">=1.4.1"
-devtools = ">=0.12.2"
-pygments = ">=2.15.1"
-# pytest-mock = ">=3.11.1"
 
-[tool.poetry.group.docs.dependencies]
-pygments = ">=2.15.1"
-sphinx = ">=7.2.6"
-myst-parser = ">=2.0.0"
-sphinx-press-theme = ">=0.8.0"
-sphinx-copybutton = ">=0.5.2"
-sphinx-autodoc-typehints = ">=1.24.0"
-sphinx-autobuild = ">=2024.2.4"
+[dependency-groups]
+dev = [
+  "devtools>=0.12.2",
+  "mypy>=1.4.1",
+  "pygments>=2.15.1",
+  "pytest>=8.0.0",
+  "pytest-cov>=4.1.0",
+  "ruff>=0.2.1",
+  # "pytest-mock>=3.11.1",
+]
+docs = [
+  "myst-parser>=2.0.0",
+  "pygments>=2.15.1",
+  "sphinx>=7.2.6",
+  "sphinx-autobuild>=2024.2.4",
+  "sphinx-autodoc-typehints>=1.24.0",
+  "sphinx-copybutton>=0.5.2",
+  "sphinx-press-theme>=0.8.0",
+]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.ruff]
 # https://docs.astral.sh/ruff/rules/

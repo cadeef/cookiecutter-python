@@ -14,7 +14,7 @@ pre-commit autoupdate
 git add .pre-commit-config.yaml
 
 # Install imports
-poetry install
+uv sync --all-groups
 
 # Create GitHub repository?
 CREATE_GH_REPO="{{ cookiecutter.create_gh_repo }}"
