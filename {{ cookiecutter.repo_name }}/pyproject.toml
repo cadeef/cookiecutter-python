@@ -49,5 +49,26 @@ build-backend = "hatchling.build"
 
 [tool.ruff]
 # https://docs.astral.sh/ruff/rules/
-lint.select = ["E", "F", "I"]
+lint.select = [
+    "B",  # Bugbear
+    "E",  # pycodestyle errors
+    "F",  # Pyflakes
+    "I",  # Import sorting
+    "C4",  # List comprehensions
+    # "FIX",  # TODO, FIX, etc
+    "LOG",  # Logger bugs
+    "PT",  # Pytest
+    "RET",  # Returns
+    "SIM",  # Simplify
+    "RUF",  # Ruff-specific
+]
+lint.ignore = [
+    "E501"  # Line too long
+]
 line-length = 120
+
+[[tool.uv.index]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+publish-url = "https://test.pypi.org/legacy/"
+explicit = true
