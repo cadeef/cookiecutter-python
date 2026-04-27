@@ -7,12 +7,11 @@
 	"python_module_version": "0.1.0",
 	"python_module_description": "{{ cookiecutter.repo_description }}",
 	"project_type": ["cli", "library", "misc"],
-    "script_name": "{{ cookiecutter.repo_name }}",
-    "create_gh_repo": ["yes", "no"],
-    "create_gh_repo_visibility": ["public", "private"],
-    "enable_gh_actions": ["yes", "no"],
+	"script_name": "{{ cookiecutter.repo_name }}",
+	"create_gh_repo": ["yes", "no"],
+	"create_gh_repo_visibility": ["public", "private"],
+	"enable_gh_actions": ["yes", "no"],
 	"_copy_without_render": [
-		".github/workflows/*.yml",
-		"Justfile"
+		".github/workflows/*.yml"
 	]
 }
