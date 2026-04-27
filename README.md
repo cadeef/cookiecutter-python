@@ -32,12 +32,13 @@ Cookiecutter’s documentation is a bit lackluster (I might jump in to help one 
 
 ### Default Context
 
-Cookiecutter supports default contexts, as they call them, to provide answers for common questions. Unfortunately, it lacks a specification that suggests expected/reusable variables, so I’ve implemented what makes sense to me. My `.cookiecutterrc` looks kinda like this (email address obscured, but feel free to email me if you’re logged in and can see it):
+Cookiecutter supports default contexts, as they call them, to provide answers for common questions. Unfortunately, it lacks a specification that suggests expected/reusable variables, so I’ve implemented what makes sense to me. My `.cookiecutterrc` looks kinda like this:
 
 ```yaml
 default_context:
   author_name: Jimbob Briggs
   author_email: totallyrealemail@example.com
+  repo_owner: jimmybriggs
 ```
 
 ### Abbreviations

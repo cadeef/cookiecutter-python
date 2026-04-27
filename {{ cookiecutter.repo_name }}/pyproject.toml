@@ -16,7 +16,7 @@ dependencies = []
 {% endif %}
 
 [project.urls]
-Repository = ""
+Repository = "https://github.com/{{ cookiecutter.repo_owner }}/{{ cookiecutter.repo_name }}"
 Documentation = ""
 {% if cookiecutter.project_type == "cli" and cookiecutter.script_name %}
 [project.scripts]
