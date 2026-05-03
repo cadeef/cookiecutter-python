@@ -4,7 +4,7 @@
 git init
 
 # Install prek hooks
-prek install 
+prek install
 
 # Autoupdate pre-commit(prek) repos
 prek auto-update

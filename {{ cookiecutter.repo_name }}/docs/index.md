@@ -1,3 +1,4 @@
+
 # {{ cookiecutter.repo_name.capitalize() }}
 
 :::{include} ../README.md
@@ -8,4 +9,3 @@
 install.md
 usage.md
 :::
-

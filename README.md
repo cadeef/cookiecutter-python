@@ -24,7 +24,7 @@ brew install uv
 
 ## Usage
 
-```
+```bash
 cookiecutter https://github.com/cadeef/cookiecutter-python.git
 ```
 

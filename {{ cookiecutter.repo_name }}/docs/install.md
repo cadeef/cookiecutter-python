@@ -1,11 +1,14 @@
 # Installation
-{% if cookiecutter.project_type == "cli" and cookiecutter.repo_name %}
-{{ cookiecutter.repo_name.capitalize() }} is hosted on [PyPi](https://pypi.org) and is easiest installed with [pipx](https://pipx.pypa.io/stable/):
+
+{% if cookiecutter.project_type == "cli" and cookiecutter.repo_name -%}
+{{ cookiecutter.repo_name.capitalize() }} is hosted on [PyPi](https://pypi.org) and is easiest installed with [uv](https://docs.astral.sh/uv/):
 
 ```sh
-pipx install {{ cookiecutter.repo_name }}
+uv tool install {{ cookiecutter.repo_name }}
 ```
-{% endif %}
+
+{% endif -%}
+
 ## Manual Install
 
 ## Configuration
