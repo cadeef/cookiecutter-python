@@ -1,0 +1,14 @@
+name: Lint
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  prek:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Repository Checkout
+      uses: actions/checkout@v6
+    - name: Run prek
+      uses: j178/prek-action@v2
